@@ -1,0 +1,15 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  fingerprint-services:
+    build: .
+    ports:
+      - "8000:8000"  # Python
+      - "8001:8001"  # PHP
+      - "8003:8003"  # Node.js
+      - "8080:8080"  # Java
+      - "8005:8005"  # .NET
+    environment:
+      - API_TOKEN=${API_TOKEN}
+    volumes:
+      - ./logs:/app/logs
